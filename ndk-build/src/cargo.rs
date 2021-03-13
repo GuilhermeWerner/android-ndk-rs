@@ -12,7 +12,7 @@ pub fn cargo_apk(ndk: &Ndk, target: Target, sdk_version: u32) -> Result<Command,
     cargo.env(format!("CXX_{}", triple), &clang_pp);
     cargo.env(cargo_env_target_cfg("LINKER", triple), &clang);
 
-    let ar = ndk.toolchain_bin("ar", target)?;
+    let ar = ndk.toolchain_bin("as", target)?;
     cargo.env(format!("AR_{}", triple), &ar);
     cargo.env(cargo_env_target_cfg("AR", triple), &ar);
 
